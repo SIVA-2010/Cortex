@@ -1,0 +1,32 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: docker/backend.Dockerfile
+    env_file: .env
+    environment:
+      POSTGRES_HOST: host.docker.internal
+      CORS_ORIGINS: http://localhost:8501
+    ports:
+      - "8000:8000"
+    volumes:
+      - cortex_uploads:/app/uploads
+      - cortex_vectors:/app/vector_store
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  frontend:
+    build:
+      context: .
+      dockerfile: docker/frontend.Dockerfile
+    env_file: .env
+    environment:
+      API_BASE_URL: http://backend:8000
+    depends_on:
+      - backend
+    ports:
+      - "8501:8501"
+
+volumes:
+  cortex_uploads:
+  cortex_vectors:

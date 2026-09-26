@@ -1,0 +1,726 @@
+{
+  "analysis": {
+    "executive_summary": "Synthetic evidence indicates two confirmed root causes and two probable operational contributors. Payment Failure and Login & Access are confirmed as release-related defects with strong statistical and support corroboration. Refund Delay is probable, driven by queue capacity and workflow change, but lacks direct incident confirmation. Delivery Tracking is probable, with a scheduler-related delay pattern supported by incident, release, transaction, and support signals, but no direct confirmed root-cause statement. High-impact actions such as rollback or access changes require human approval.",
+    "findings": [
+      {
+        "title": "Payment Failure caused by gateway timeout configuration change",
+        "category": "Payment Failure",
+        "status": "confirmed",
+        "root_cause": "Incorrect gateway timeout threshold introduced in release REL-6.4-PAY caused valid mobile payment transactions to time out.",
+        "reasoning": "This is directly confirmed by incident INC-2048 and release REL-6.4-PAY, both tied to the same component and time window. The statistical spike in failure rate and the backlog/SLA deterioration further corroborate operational impact.",
+        "supporting_evidence_ids": [
+          "INC-2048",
+          "REL-6.4-PAY",
+          "SUPSIG-PAYMENT-FAILURE",
+          "TXSIG-PAYMENT-FAILURE"
+        ],
+        "complaint_evidence_ids": [
+          "CMP-202607-000052",
+          "CMP-202607-000067",
+          "CMP-202607-000016",
+          "CMP-202607-000015",
+          "CMP-202607-000061",
+          "CMP-202607-000059"
+        ],
+        "confidence": 0.98,
+        "business_impact": "High customer frustration, financial trust risk, elevated SLA breaches, and compensation exposure.",
+        "recommended_action": "Maintain the release rollback already available for REL-6.4-PAY under human approval, validate payment gateway thresholds, and monitor transaction failure recovery.",
+        "risk_level": "critical",
+        "human_approval_required": true,
+        "evidence_gaps": [
+          "No complaint-to-transaction linkage at individual customer level.",
+          "No evidence provided on whether all payment channels are affected or only mobile payments."
+        ]
+      },
+      {
+        "title": "Login & Access failures caused by token-cache invalidation defect",
+        "category": "Login & Access",
+        "status": "confirmed",
+        "root_cause": "A token-cache invalidation defect introduced by release REL-6.4-AUTH caused repeated sign-in loops and token refresh failures.",
+        "reasoning": "Direct confirmation exists in incident INC-2039 and release REL-6.4-AUTH. The complaint pattern, failure-rate increase, and backlog/SLA deterioration align temporally and operationally with the incident.",
+        "supporting_evidence_ids": [
+          "INC-2039",
+          "REL-6.4-AUTH",
+          "SUPSIG-LOGIN-ACCESS",
+          "TXSIG-LOGIN-ACCESS"
+        ],
+        "complaint_evidence_ids": [
+          "CMP-202607-000043",
+          "CMP-202607-000019"
+        ],
+        "confidence": 0.98,
+        "business_impact": "Blocks access to core services, increases repeat contacts and escalations, and reduces self-service success.",
+        "recommended_action": "Keep the rollback state for REL-6.4-AUTH in place, verify authentication token handling, and perform controlled revalidation before any re-release.",
+        "risk_level": "critical",
+        "human_approval_required": true,
+        "evidence_gaps": [
+          "No evidence identifies whether impact is limited to specific client types or portal flows.",
+          "No complaint-level mapping to the exact token refresh failure path."
+        ]
+      },
+      {
+        "title": "Refund Delay driven by queue capacity shortfall and workflow change",
+        "category": "Refund Delay",
+        "status": "probable",
+        "root_cause": "Refund cases accumulated after the Refund Service workflow change added a reconciliation review step, while staffing capacity in South and West queues was below forecast.",
+        "reasoning": "The incident INC-2043 and release REL-3.2-REFUND provide corroboration, and support signals show a sharp backlog and SLA deterioration with reduced available agents. However, there is no direct incident root-cause confirmation, so this remains probable rather than confirmed.",
+        "supporting_evidence_ids": [
+          "INC-2043",
+          "REL-3.2-REFUND",
+          "SUPSIG-REFUND-DELAY"
+        ],
+        "complaint_evidence_ids": [
+          "CMP-202607-000050",
+          "CMP-202607-000037"
+        ],
+        "confidence": 0.84,
+        "business_impact": "Prolonged customer dissatisfaction, refund liability pressure, and repeated follow-up contacts.",
+        "recommended_action": "Rebalance refund queue staffing, review the added reconciliation step for unnecessary delay, and prioritize aged refund cases.",
+        "risk_level": "high",
+        "human_approval_required": false,
+        "evidence_gaps": [
+          "No direct evidence proves the workflow change alone caused the delay.",
+          "No breakdown by refund amount, region, or case type beyond the support-queue signal."
+        ]
+      },
+      {
+        "title": "Delivery Tracking delays likely caused by courier-status synchronization scheduling change",
+        "category": "Delivery Tracking",
+        "status": "probable",
+        "root_cause": "A scheduler and queue-batching change in Order Tracking delayed courier-status synchronization, producing stale delivery information.",
+        "reasoning": "Incident INC-2052 and release REL-5.1-TRACK align with the complaint acceleration, transaction-rate increase, and backlog/SLA deterioration. The incident is still under investigation and lacks a confirmed root cause, so the finding is probable.",
+        "supporting_evidence_ids": [
+          "INC-2052",
+          "REL-5.1-TRACK",
+          "SUPSIG-DELIVERY-TRACKING",
+          "TXSIG-DELIVERY-TRACKING"
+        ],
+        "complaint_evidence_ids": [
+          "CMP-202607-000033",
+          "CMP-202607-000056",
+          "CMP-202607-000008",
+          "CMP-202607-000054",
+          "CMP-202607-000055"
+        ],
+        "confidence": 0.79,
+        "business_impact": "Reduced delivery transparency, increased inbound contacts, and rising support load during the late-month spike.",
+        "recommended_action": "Investigate scheduler timing, queue batching, and courier sync latency; consider rollback only with human approval if customer impact continues to rise.",
+        "risk_level": "high",
+        "human_approval_required": true,
+        "evidence_gaps": [
+          "No direct confirmed root cause from the incident record.",
+          "No evidence isolates whether the issue is scheduler timing, batching logic, or courier feed latency."
+        ]
+      }
+    ],
+    "cross_cutting_risks": [
+      "Overall SLA performance is weak, with 60.0% breach rate and 71.0% escalation rate across the dataset.",
+      "Late-month spikes in Payment Failure and Delivery Tracking suggest release or configuration sensitivity.",
+      "Privacy & Data complaints have the highest escalation rate, indicating elevated compliance and reputational risk even at lower volume.",
+      "Refund Delay shows the highest repeat-contact intensity and refund cost exposure, increasing backlog and customer dissatisfaction risk."
+    ],
+    "recommended_next_checks": [
+      "Validate whether complaint spikes align exactly with release timestamps and deployment windows.",
+      "Segment Payment Failure and Login & Access by channel, product version, and client type.",
+      "Review refund queue staffing, routing rules, and the added reconciliation step for avoidable delay.",
+      "Investigate Delivery Tracking scheduler timing, batching, and courier feed latency.",
+      "Assess Privacy & Data complaints for workflow or permission changes; no direct operational evidence was supplied for root cause.",
+      "Quantify how many open complaints are older than SLA by category and channel."
+    ],
+    "limitations": [
+      "All records are synthetic demonstration data.",
+      "Only evidence IDs supplied in the catalog were used.",
+      "Temporal correlation supports but does not by itself prove causation.",
+      "High-impact production actions such as rollback or access revocation require human approval."
+    ]
+  },
+  "operational_evidence_summary": {
+    "synthetic_data": true,
+    "source_directory": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\operations",
+    "source_files": [
+      {
+        "logical_name": "service_incidents",
+        "file_name": "service_incidents.csv",
+        "source_path": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\operations\\service_incidents.csv",
+        "row_count": 4,
+        "sha256": "bc197e872bcee47ac82a932207764ab6c6776155f6efd6def0de5a4480ad8d02"
+      },
+      {
+        "logical_name": "product_release_history",
+        "file_name": "product_release_history.csv",
+        "source_path": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\operations\\product_release_history.csv",
+        "row_count": 4,
+        "sha256": "17b838b1b6e54ff79ed96ce3d021cc34aa439029307d89858768ae91ab706176"
+      },
+      {
+        "logical_name": "transaction_failures",
+        "file_name": "transaction_failures.csv",
+        "source_path": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\operations\\transaction_failures.csv",
+        "row_count": 93,
+        "sha256": "2fab4aceeb334df3d032f5d7c5ee81bbc121b73dd2450e86b8fbc9368752dd45"
+      },
+      {
+        "logical_name": "support_team_metrics",
+        "file_name": "support_team_metrics.csv",
+        "source_path": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\operations\\support_team_metrics.csv",
+        "row_count": 186,
+        "sha256": "59121559df326063a582824982c4c49e602eb8e7966d01e6d95450b49fb88f1f"
+      }
+    ],
+    "incident_evidence": [
+      {
+        "evidence_id": "INC-2039",
+        "evidence_type": "service_incident",
+        "category": "Login & Access",
+        "observed_at": "2026-07-12T08:10:00+00:00",
+        "product": "Customer Portal",
+        "component": "Authentication Token Service",
+        "severity": "high",
+        "status": "resolved",
+        "description": "Token refresh failures increased after authentication changes in Customer Portal version 6.4.",
+        "confirmed_root_cause": "A token-cache invalidation defect introduced by release REL-6.4-AUTH caused repeated sign-in loops.",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "INC-2043",
+        "evidence_type": "service_incident",
+        "category": "Refund Delay",
+        "observed_at": "2026-07-15T06:00:00+00:00",
+        "product": "Refund Service",
+        "component": "Manual Reconciliation Queue",
+        "severity": "high",
+        "status": "mitigated",
+        "description": "Refund cases accumulated in South and West support queues while staffing capacity was below forecast.",
+        "confirmed_root_cause": "",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "INC-2048",
+        "evidence_type": "service_incident",
+        "category": "Payment Failure",
+        "observed_at": "2026-07-18T09:15:00+00:00",
+        "product": "Mobile Payments",
+        "component": "Payment Gateway",
+        "severity": "critical",
+        "status": "resolved",
+        "description": "Gateway timeouts and failed mobile payments rose sharply after a production configuration change.",
+        "confirmed_root_cause": "The gateway timeout threshold was reduced incorrectly during release REL-6.4-PAY, causing valid transactions to time out.",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "INC-2052",
+        "evidence_type": "service_incident",
+        "category": "Delivery Tracking",
+        "observed_at": "2026-07-27T07:00:00+00:00",
+        "product": "Order Tracking",
+        "component": "Courier Status Synchronization",
+        "severity": "medium",
+        "status": "investigating",
+        "description": "Courier-status updates were delayed after a scheduler change, causing stale delivery information in the customer application.",
+        "confirmed_root_cause": "",
+        "strength": "corroborating"
+      }
+    ],
+    "release_evidence": [
+      {
+        "evidence_id": "REL-3.2-REFUND",
+        "evidence_type": "product_release",
+        "category": "Refund Delay",
+        "observed_at": "2026-07-10T10:00:00+00:00",
+        "product": "Refund Service",
+        "component": "Refund Workflow",
+        "version": "3.2",
+        "change_summary": "Added a new reconciliation review step for higher-value refunds.",
+        "validation_status": "operational_monitoring",
+        "rollback_available": false,
+        "related_incident_id": "INC-2043",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "REL-6.4-AUTH",
+        "evidence_type": "product_release",
+        "category": "Login & Access",
+        "observed_at": "2026-07-12T07:30:00+00:00",
+        "product": "Customer Portal",
+        "component": "Authentication Token Service",
+        "version": "6.4",
+        "change_summary": "Introduced token-cache and refresh-flow changes for session performance.",
+        "validation_status": "rolled_back",
+        "rollback_available": true,
+        "related_incident_id": "INC-2039",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "REL-6.4-PAY",
+        "evidence_type": "product_release",
+        "category": "Payment Failure",
+        "observed_at": "2026-07-18T08:00:00+00:00",
+        "product": "Mobile Payments",
+        "component": "Payment Gateway",
+        "version": "6.4",
+        "change_summary": "Changed gateway timeout and retry settings to reduce average checkout latency.",
+        "validation_status": "failed_post_release",
+        "rollback_available": true,
+        "related_incident_id": "INC-2048",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "REL-5.1-TRACK",
+        "evidence_type": "product_release",
+        "category": "Delivery Tracking",
+        "observed_at": "2026-07-26T21:00:00+00:00",
+        "product": "Order Tracking",
+        "component": "Courier Status Synchronization",
+        "version": "5.1",
+        "change_summary": "Changed courier synchronization scheduling and queue batching.",
+        "validation_status": "under_review",
+        "rollback_available": true,
+        "related_incident_id": "INC-2052",
+        "strength": "corroborating"
+      }
+    ],
+    "transaction_signals": [
+      {
+        "evidence_id": "TXSIG-PAYMENT-FAILURE",
+        "category": "Payment Failure",
+        "change_date": "2026-07-18",
+        "pre_7_day_failure_count": 343,
+        "post_7_day_failure_count": 2294,
+        "pre_failure_rate_pct": 1.475,
+        "post_failure_rate_pct": 9.763,
+        "failure_rate_ratio": 6.62,
+        "failure_rate_increase_pct": 562.14,
+        "related_incident_ids": [
+          "INC-2048"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Payment Failure changed from 1.475% to 9.763% around 2026-07-18."
+      },
+      {
+        "evidence_id": "TXSIG-LOGIN-ACCESS",
+        "category": "Login & Access",
+        "change_date": "2026-07-12",
+        "pre_7_day_failure_count": 170,
+        "post_7_day_failure_count": 994,
+        "pre_failure_rate_pct": 0.719,
+        "post_failure_rate_pct": 4.095,
+        "failure_rate_ratio": 5.7,
+        "failure_rate_increase_pct": 469.72,
+        "related_incident_ids": [
+          "INC-2039"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Login & Access changed from 0.719% to 4.095% around 2026-07-12."
+      },
+      {
+        "evidence_id": "TXSIG-DELIVERY-TRACKING",
+        "category": "Delivery Tracking",
+        "change_date": "2026-07-27",
+        "pre_7_day_failure_count": 129,
+        "post_7_day_failure_count": 536,
+        "pre_failure_rate_pct": 0.537,
+        "post_failure_rate_pct": 3.172,
+        "failure_rate_ratio": 5.9,
+        "failure_rate_increase_pct": 490.25,
+        "related_incident_ids": [
+          "INC-2052"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Delivery Tracking changed from 0.537% to 3.172% around 2026-07-27."
+      }
+    ],
+    "support_signals": [
+      {
+        "evidence_id": "SUPSIG-PAYMENT-FAILURE",
+        "category": "Payment Failure",
+        "change_date": "2026-07-18",
+        "pre_average_backlog": 28.0,
+        "post_average_backlog": 65.86,
+        "pre_sla_breach_rate_pct": 12.76,
+        "post_sla_breach_rate_pct": 31.36,
+        "pre_available_agents": 17.57,
+        "post_available_agents": 18.71,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Payments Operations"
+        ],
+        "strength": "corroborating",
+        "description": "For Payment Failure, average backlog changed from 28.00 to 65.86, while the average SLA breach rate changed from 12.76% to 31.36%."
+      },
+      {
+        "evidence_id": "SUPSIG-LOGIN-ACCESS",
+        "category": "Login & Access",
+        "change_date": "2026-07-12",
+        "pre_average_backlog": 25.86,
+        "post_average_backlog": 47.0,
+        "pre_sla_breach_rate_pct": 10.94,
+        "post_sla_breach_rate_pct": 23.41,
+        "pre_available_agents": 18.14,
+        "post_available_agents": 17.29,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Account Services"
+        ],
+        "strength": "corroborating",
+        "description": "For Login & Access, average backlog changed from 25.86 to 47.00, while the average SLA breach rate changed from 10.94% to 23.41%."
+      },
+      {
+        "evidence_id": "SUPSIG-DELIVERY-TRACKING",
+        "category": "Delivery Tracking",
+        "change_date": "2026-07-27",
+        "pre_average_backlog": 26.29,
+        "post_average_backlog": 84.2,
+        "pre_sla_breach_rate_pct": 12.86,
+        "post_sla_breach_rate_pct": 31.21,
+        "pre_available_agents": 18.29,
+        "post_available_agents": 16.8,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Logistics Support"
+        ],
+        "strength": "corroborating",
+        "description": "For Delivery Tracking, average backlog changed from 26.29 to 84.20, while the average SLA breach rate changed from 12.86% to 31.21%."
+      },
+      {
+        "evidence_id": "SUPSIG-REFUND-DELAY",
+        "category": "Refund Delay",
+        "change_date": "2026-07-15",
+        "pre_average_backlog": 26.81,
+        "post_average_backlog": 87.24,
+        "pre_sla_breach_rate_pct": 11.62,
+        "post_sla_breach_rate_pct": 38.21,
+        "pre_available_agents": 18.19,
+        "post_available_agents": 11.62,
+        "regions": [
+          "North",
+          "South",
+          "West"
+        ],
+        "teams": [
+          "Refund Desk"
+        ],
+        "strength": "corroborating",
+        "description": "For Refund Delay, average backlog changed from 26.81 to 87.24, while the average SLA breach rate changed from 11.62% to 38.21%."
+      }
+    ],
+    "evidence_catalog": [
+      {
+        "evidence_id": "INC-2039",
+        "evidence_type": "service_incident",
+        "category": "Login & Access",
+        "observed_at": "2026-07-12T08:10:00+00:00",
+        "product": "Customer Portal",
+        "component": "Authentication Token Service",
+        "severity": "high",
+        "status": "resolved",
+        "description": "Token refresh failures increased after authentication changes in Customer Portal version 6.4.",
+        "confirmed_root_cause": "A token-cache invalidation defect introduced by release REL-6.4-AUTH caused repeated sign-in loops.",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "INC-2043",
+        "evidence_type": "service_incident",
+        "category": "Refund Delay",
+        "observed_at": "2026-07-15T06:00:00+00:00",
+        "product": "Refund Service",
+        "component": "Manual Reconciliation Queue",
+        "severity": "high",
+        "status": "mitigated",
+        "description": "Refund cases accumulated in South and West support queues while staffing capacity was below forecast.",
+        "confirmed_root_cause": "",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "INC-2048",
+        "evidence_type": "service_incident",
+        "category": "Payment Failure",
+        "observed_at": "2026-07-18T09:15:00+00:00",
+        "product": "Mobile Payments",
+        "component": "Payment Gateway",
+        "severity": "critical",
+        "status": "resolved",
+        "description": "Gateway timeouts and failed mobile payments rose sharply after a production configuration change.",
+        "confirmed_root_cause": "The gateway timeout threshold was reduced incorrectly during release REL-6.4-PAY, causing valid transactions to time out.",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "INC-2052",
+        "evidence_type": "service_incident",
+        "category": "Delivery Tracking",
+        "observed_at": "2026-07-27T07:00:00+00:00",
+        "product": "Order Tracking",
+        "component": "Courier Status Synchronization",
+        "severity": "medium",
+        "status": "investigating",
+        "description": "Courier-status updates were delayed after a scheduler change, causing stale delivery information in the customer application.",
+        "confirmed_root_cause": "",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "REL-3.2-REFUND",
+        "evidence_type": "product_release",
+        "category": "Refund Delay",
+        "observed_at": "2026-07-10T10:00:00+00:00",
+        "product": "Refund Service",
+        "component": "Refund Workflow",
+        "version": "3.2",
+        "change_summary": "Added a new reconciliation review step for higher-value refunds.",
+        "validation_status": "operational_monitoring",
+        "rollback_available": false,
+        "related_incident_id": "INC-2043",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "REL-6.4-AUTH",
+        "evidence_type": "product_release",
+        "category": "Login & Access",
+        "observed_at": "2026-07-12T07:30:00+00:00",
+        "product": "Customer Portal",
+        "component": "Authentication Token Service",
+        "version": "6.4",
+        "change_summary": "Introduced token-cache and refresh-flow changes for session performance.",
+        "validation_status": "rolled_back",
+        "rollback_available": true,
+        "related_incident_id": "INC-2039",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "REL-6.4-PAY",
+        "evidence_type": "product_release",
+        "category": "Payment Failure",
+        "observed_at": "2026-07-18T08:00:00+00:00",
+        "product": "Mobile Payments",
+        "component": "Payment Gateway",
+        "version": "6.4",
+        "change_summary": "Changed gateway timeout and retry settings to reduce average checkout latency.",
+        "validation_status": "failed_post_release",
+        "rollback_available": true,
+        "related_incident_id": "INC-2048",
+        "strength": "direct"
+      },
+      {
+        "evidence_id": "REL-5.1-TRACK",
+        "evidence_type": "product_release",
+        "category": "Delivery Tracking",
+        "observed_at": "2026-07-26T21:00:00+00:00",
+        "product": "Order Tracking",
+        "component": "Courier Status Synchronization",
+        "version": "5.1",
+        "change_summary": "Changed courier synchronization scheduling and queue batching.",
+        "validation_status": "under_review",
+        "rollback_available": true,
+        "related_incident_id": "INC-2052",
+        "strength": "corroborating"
+      },
+      {
+        "evidence_id": "TXSIG-PAYMENT-FAILURE",
+        "category": "Payment Failure",
+        "change_date": "2026-07-18",
+        "pre_7_day_failure_count": 343,
+        "post_7_day_failure_count": 2294,
+        "pre_failure_rate_pct": 1.475,
+        "post_failure_rate_pct": 9.763,
+        "failure_rate_ratio": 6.62,
+        "failure_rate_increase_pct": 562.14,
+        "related_incident_ids": [
+          "INC-2048"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Payment Failure changed from 1.475% to 9.763% around 2026-07-18.",
+        "evidence_type": "transaction_signal"
+      },
+      {
+        "evidence_id": "TXSIG-LOGIN-ACCESS",
+        "category": "Login & Access",
+        "change_date": "2026-07-12",
+        "pre_7_day_failure_count": 170,
+        "post_7_day_failure_count": 994,
+        "pre_failure_rate_pct": 0.719,
+        "post_failure_rate_pct": 4.095,
+        "failure_rate_ratio": 5.7,
+        "failure_rate_increase_pct": 469.72,
+        "related_incident_ids": [
+          "INC-2039"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Login & Access changed from 0.719% to 4.095% around 2026-07-12.",
+        "evidence_type": "transaction_signal"
+      },
+      {
+        "evidence_id": "TXSIG-DELIVERY-TRACKING",
+        "category": "Delivery Tracking",
+        "change_date": "2026-07-27",
+        "pre_7_day_failure_count": 129,
+        "post_7_day_failure_count": 536,
+        "pre_failure_rate_pct": 0.537,
+        "post_failure_rate_pct": 3.172,
+        "failure_rate_ratio": 5.9,
+        "failure_rate_increase_pct": 490.25,
+        "related_incident_ids": [
+          "INC-2052"
+        ],
+        "strength": "statistical",
+        "description": "The seven-day failure rate for Delivery Tracking changed from 0.537% to 3.172% around 2026-07-27.",
+        "evidence_type": "transaction_signal"
+      },
+      {
+        "evidence_id": "SUPSIG-PAYMENT-FAILURE",
+        "category": "Payment Failure",
+        "change_date": "2026-07-18",
+        "pre_average_backlog": 28.0,
+        "post_average_backlog": 65.86,
+        "pre_sla_breach_rate_pct": 12.76,
+        "post_sla_breach_rate_pct": 31.36,
+        "pre_available_agents": 17.57,
+        "post_available_agents": 18.71,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Payments Operations"
+        ],
+        "strength": "corroborating",
+        "description": "For Payment Failure, average backlog changed from 28.00 to 65.86, while the average SLA breach rate changed from 12.76% to 31.36%.",
+        "evidence_type": "support_signal"
+      },
+      {
+        "evidence_id": "SUPSIG-LOGIN-ACCESS",
+        "category": "Login & Access",
+        "change_date": "2026-07-12",
+        "pre_average_backlog": 25.86,
+        "post_average_backlog": 47.0,
+        "pre_sla_breach_rate_pct": 10.94,
+        "post_sla_breach_rate_pct": 23.41,
+        "pre_available_agents": 18.14,
+        "post_available_agents": 17.29,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Account Services"
+        ],
+        "strength": "corroborating",
+        "description": "For Login & Access, average backlog changed from 25.86 to 47.00, while the average SLA breach rate changed from 10.94% to 23.41%.",
+        "evidence_type": "support_signal"
+      },
+      {
+        "evidence_id": "SUPSIG-DELIVERY-TRACKING",
+        "category": "Delivery Tracking",
+        "change_date": "2026-07-27",
+        "pre_average_backlog": 26.29,
+        "post_average_backlog": 84.2,
+        "pre_sla_breach_rate_pct": 12.86,
+        "post_sla_breach_rate_pct": 31.21,
+        "pre_available_agents": 18.29,
+        "post_available_agents": 16.8,
+        "regions": [
+          "Global"
+        ],
+        "teams": [
+          "Logistics Support"
+        ],
+        "strength": "corroborating",
+        "description": "For Delivery Tracking, average backlog changed from 26.29 to 84.20, while the average SLA breach rate changed from 12.86% to 31.21%.",
+        "evidence_type": "support_signal"
+      },
+      {
+        "evidence_id": "SUPSIG-REFUND-DELAY",
+        "category": "Refund Delay",
+        "change_date": "2026-07-15",
+        "pre_average_backlog": 26.81,
+        "post_average_backlog": 87.24,
+        "pre_sla_breach_rate_pct": 11.62,
+        "post_sla_breach_rate_pct": 38.21,
+        "pre_available_agents": 18.19,
+        "post_available_agents": 11.62,
+        "regions": [
+          "North",
+          "South",
+          "West"
+        ],
+        "teams": [
+          "Refund Desk"
+        ],
+        "strength": "corroborating",
+        "description": "For Refund Delay, average backlog changed from 26.81 to 87.24, while the average SLA breach rate changed from 11.62% to 38.21%.",
+        "evidence_type": "support_signal"
+      }
+    ],
+    "category_evidence_index": {
+      "Login & Access": {
+        "evidence_ids": [
+          "INC-2039",
+          "REL-6.4-AUTH",
+          "SUPSIG-LOGIN-ACCESS",
+          "TXSIG-LOGIN-ACCESS"
+        ],
+        "direct_evidence_ids": [
+          "INC-2039",
+          "REL-6.4-AUTH"
+        ],
+        "strengths": [
+          "corroborating",
+          "direct",
+          "statistical"
+        ]
+      },
+      "Refund Delay": {
+        "evidence_ids": [
+          "INC-2043",
+          "REL-3.2-REFUND",
+          "SUPSIG-REFUND-DELAY"
+        ],
+        "direct_evidence_ids": [],
+        "strengths": [
+          "corroborating"
+        ]
+      },
+      "Payment Failure": {
+        "evidence_ids": [
+          "INC-2048",
+          "REL-6.4-PAY",
+          "SUPSIG-PAYMENT-FAILURE",
+          "TXSIG-PAYMENT-FAILURE"
+        ],
+        "direct_evidence_ids": [
+          "INC-2048",
+          "REL-6.4-PAY"
+        ],
+        "strengths": [
+          "corroborating",
+          "direct",
+          "statistical"
+        ]
+      },
+      "Delivery Tracking": {
+        "evidence_ids": [
+          "INC-2052",
+          "REL-5.1-TRACK",
+          "SUPSIG-DELIVERY-TRACKING",
+          "TXSIG-DELIVERY-TRACKING"
+        ],
+        "direct_evidence_ids": [],
+        "strengths": [
+          "corroborating",
+          "statistical"
+        ]
+      }
+    },
+    "total_evidence_items": 15,
+    "direct_evidence_count": 4,
+    "limitations": [
+      "All operational records are synthetic demonstration evidence.",
+      "Temporal overlap alone does not prove causation.",
+      "Confirmed findings require at least one direct evidence item."
+    ]
+  },
+  "provider": "azure",
+  "deployment": "cortex-llm",
+  "synthetic_data": true
+}

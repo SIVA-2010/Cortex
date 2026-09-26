@@ -1,0 +1,187 @@
+metric_date,team,region,open_backlog,average_resolution_hours,sla_breach_rate_pct,available_agents,absence_rate_pct,repeat_contact_rate_pct,related_category
+2026-07-01,Refund Desk,South,21,17.55,6.91,19,1.76,9.98,Refund Delay
+2026-07-01,Refund Desk,West,36,18.34,12.47,18,3.1,15.66,Refund Delay
+2026-07-01,Refund Desk,North,16,15.93,14.13,17,5.34,10.85,Refund Delay
+2026-07-01,Payments Operations,Global,37,19.69,11.59,16,3.69,10.56,Payment Failure
+2026-07-01,Account Services,Global,23,8.22,12.78,15,1.7,9.18,Login & Access
+2026-07-01,Logistics Support,Global,31,16.14,15.85,18,4.91,13.88,Delivery Tracking
+2026-07-02,Refund Desk,South,21,14.35,14.27,18,4.98,11.14,Refund Delay
+2026-07-02,Refund Desk,West,38,16.6,10.74,19,4.08,13.62,Refund Delay
+2026-07-02,Refund Desk,North,40,13.74,12.45,15,3.15,18.38,Refund Delay
+2026-07-02,Payments Operations,Global,37,26.5,16.95,20,5.02,18.68,Payment Failure
+2026-07-02,Account Services,Global,20,11.87,6.65,21,4.53,10.08,Login & Access
+2026-07-02,Logistics Support,Global,19,18.46,8.63,16,5.86,18.99,Delivery Tracking
+2026-07-03,Refund Desk,South,38,27.52,9.27,21,1.62,19.72,Refund Delay
+2026-07-03,Refund Desk,West,23,15.45,11.53,18,5.88,18.84,Refund Delay
+2026-07-03,Refund Desk,North,17,8.69,17.19,18,3.49,9.53,Refund Delay
+2026-07-03,Payments Operations,Global,19,22.26,12.12,14,5.08,19.48,Payment Failure
+2026-07-03,Account Services,Global,40,20.91,11.95,19,4.25,19.93,Login & Access
+2026-07-03,Logistics Support,Global,30,16.19,14.38,16,2.9,13.29,Delivery Tracking
+2026-07-04,Refund Desk,South,36,20.19,14.93,21,5.4,16.48,Refund Delay
+2026-07-04,Refund Desk,West,30,15.73,9.79,16,5.47,10.63,Refund Delay
+2026-07-04,Refund Desk,North,38,20.09,14.99,22,4.3,15.78,Refund Delay
+2026-07-04,Payments Operations,Global,16,11.36,10.76,20,2.92,8.97,Payment Failure
+2026-07-04,Account Services,Global,16,20.13,8.71,20,1.07,8.51,Login & Access
+2026-07-04,Logistics Support,Global,32,20.83,15.37,21,5.17,8.68,Delivery Tracking
+2026-07-05,Refund Desk,South,36,26.48,8.86,15,2.07,8.73,Refund Delay
+2026-07-05,Refund Desk,West,30,8.22,5.35,17,1.92,14.19,Refund Delay
+2026-07-05,Refund Desk,North,26,11.56,6.98,21,1.98,18.78,Refund Delay
+2026-07-05,Payments Operations,Global,27,25.13,10.25,20,3.66,14.98,Payment Failure
+2026-07-05,Account Services,Global,21,10.42,10.27,22,1.9,14.67,Login & Access
+2026-07-05,Logistics Support,Global,25,10.86,17.9,17,5.66,18.44,Delivery Tracking
+2026-07-06,Refund Desk,South,20,12.14,13.32,22,1.79,13.5,Refund Delay
+2026-07-06,Refund Desk,West,42,12.09,16.7,14,3.09,9.3,Refund Delay
+2026-07-06,Refund Desk,North,20,18.52,14.93,15,5.56,11.92,Refund Delay
+2026-07-06,Payments Operations,Global,35,26.88,10.64,14,1.76,17.64,Payment Failure
+2026-07-06,Account Services,Global,26,14.41,9.65,18,4.88,14.35,Login & Access
+2026-07-06,Logistics Support,Global,27,21.01,11.83,17,1.22,14.58,Delivery Tracking
+2026-07-07,Refund Desk,South,25,14.59,11.1,14,3.14,17.17,Refund Delay
+2026-07-07,Refund Desk,West,37,10.7,10.08,18,1.09,17.13,Refund Delay
+2026-07-07,Refund Desk,North,36,18.0,9.69,19,1.43,16.8,Refund Delay
+2026-07-07,Payments Operations,Global,28,27.88,9.69,14,5.02,10.12,Payment Failure
+2026-07-07,Account Services,Global,23,9.38,15.1,20,5.12,12.1,Login & Access
+2026-07-07,Logistics Support,Global,23,17.39,6.11,15,5.45,18.78,Delivery Tracking
+2026-07-08,Refund Desk,South,39,23.07,15.28,20,5.78,16.4,Refund Delay
+2026-07-08,Refund Desk,West,16,10.32,17.07,15,2.41,16.67,Refund Delay
+2026-07-08,Refund Desk,North,20,25.48,6.36,17,5.0,12.14,Refund Delay
+2026-07-08,Payments Operations,Global,26,25.95,6.63,16,4.19,8.32,Payment Failure
+2026-07-08,Account Services,Global,32,13.12,5.08,19,3.83,18.65,Login & Access
+2026-07-08,Logistics Support,Global,21,22.14,16.26,14,5.87,9.02,Delivery Tracking
+2026-07-09,Refund Desk,South,25,10.45,9.95,19,5.36,9.59,Refund Delay
+2026-07-09,Refund Desk,West,35,26.14,8.31,14,3.48,11.15,Refund Delay
+2026-07-09,Refund Desk,North,31,16.07,13.37,22,2.53,18.56,Refund Delay
+2026-07-09,Payments Operations,Global,15,16.89,14.03,21,4.03,12.42,Payment Failure
+2026-07-09,Account Services,Global,21,10.82,9.57,17,2.97,18.61,Login & Access
+2026-07-09,Logistics Support,Global,31,13.88,10.72,17,2.92,15.86,Delivery Tracking
+2026-07-10,Refund Desk,South,30,8.88,12.57,16,5.64,15.24,Refund Delay
+2026-07-10,Refund Desk,West,19,15.59,16.93,19,3.15,9.28,Refund Delay
+2026-07-10,Refund Desk,North,22,21.93,6.11,20,3.22,11.24,Refund Delay
+2026-07-10,Payments Operations,Global,37,23.02,15.76,22,4.14,19.74,Payment Failure
+2026-07-10,Account Services,Global,26,9.75,11.61,15,4.67,11.87,Login & Access
+2026-07-10,Logistics Support,Global,40,16.33,7.67,20,4.03,14.15,Delivery Tracking
+2026-07-11,Refund Desk,South,31,22.39,14.53,16,4.5,15.23,Refund Delay
+2026-07-11,Refund Desk,West,23,9.55,8.65,22,2.15,8.65,Refund Delay
+2026-07-11,Refund Desk,North,16,17.73,6.53,20,2.25,11.2,Refund Delay
+2026-07-11,Payments Operations,Global,24,18.72,15.58,22,1.94,14.97,Payment Failure
+2026-07-11,Account Services,Global,32,19.73,15.29,16,1.53,16.65,Login & Access
+2026-07-11,Logistics Support,Global,20,21.03,6.03,21,5.11,19.09,Delivery Tracking
+2026-07-12,Refund Desk,South,40,10.74,14.52,18,2.35,10.85,Refund Delay
+2026-07-12,Refund Desk,West,32,24.59,17.76,15,4.68,8.42,Refund Delay
+2026-07-12,Refund Desk,North,35,18.01,12.18,21,5.3,17.67,Refund Delay
+2026-07-12,Payments Operations,Global,28,23.05,17.85,15,4.54,8.66,Payment Failure
+2026-07-12,Account Services,Global,66,8.65,25.56,18,5.37,8.63,Login & Access
+2026-07-12,Logistics Support,Global,29,8.25,14.06,19,1.04,13.12,Delivery Tracking
+2026-07-13,Refund Desk,South,18,20.97,12.12,14,2.29,8.77,Refund Delay
+2026-07-13,Refund Desk,West,29,8.85,11.45,16,5.88,9.31,Refund Delay
+2026-07-13,Refund Desk,North,21,24.08,16.22,22,1.47,18.02,Refund Delay
+2026-07-13,Payments Operations,Global,32,21.13,14.22,20,4.56,12.19,Payment Failure
+2026-07-13,Account Services,Global,62,11.16,37.86,15,4.5,15.02,Login & Access
+2026-07-13,Logistics Support,Global,35,19.35,11.99,15,3.81,15.61,Delivery Tracking
+2026-07-14,Refund Desk,South,19,15.93,5.89,19,1.06,15.83,Refund Delay
+2026-07-14,Refund Desk,West,33,11.74,7.24,16,1.74,8.22,Refund Delay
+2026-07-14,Refund Desk,North,29,22.58,10.97,21,5.5,9.32,Refund Delay
+2026-07-14,Payments Operations,Global,36,21.28,8.37,14,4.72,9.78,Payment Failure
+2026-07-14,Account Services,Global,52,19.77,31.06,18,1.13,15.42,Login & Access
+2026-07-14,Logistics Support,Global,34,23.46,16.29,19,1.73,16.46,Delivery Tracking
+2026-07-15,Refund Desk,South,122,55.02,57.64,9,17.11,49.32,Refund Delay
+2026-07-15,Refund Desk,West,91,74.51,45.48,6,12.4,45.17,Refund Delay
+2026-07-15,Refund Desk,North,39,19.12,8.3,21,3.33,8.5,Refund Delay
+2026-07-15,Payments Operations,Global,21,12.63,9.37,21,5.63,17.74,Payment Failure
+2026-07-15,Account Services,Global,57,14.52,32.6,19,3.28,15.24,Login & Access
+2026-07-15,Logistics Support,Global,24,14.03,13.41,21,3.61,15.68,Delivery Tracking
+2026-07-16,Refund Desk,South,103,55.46,48.32,8,16.96,34.73,Refund Delay
+2026-07-16,Refund Desk,West,135,44.21,41.51,10,15.66,49.88,Refund Delay
+2026-07-16,Refund Desk,North,39,9.94,16.4,15,1.8,18.51,Refund Delay
+2026-07-16,Payments Operations,Global,27,24.83,17.76,15,1.27,15.45,Payment Failure
+2026-07-16,Account Services,Global,34,20.43,13.07,15,3.03,9.09,Login & Access
+2026-07-16,Logistics Support,Global,34,27.35,15.97,21,2.33,17.37,Delivery Tracking
+2026-07-17,Refund Desk,South,91,73.44,50.08,9,13.02,36.32,Refund Delay
+2026-07-17,Refund Desk,West,133,57.31,61.83,7,16.82,49.95,Refund Delay
+2026-07-17,Refund Desk,North,16,27.52,11.24,22,2.45,8.44,Refund Delay
+2026-07-17,Payments Operations,Global,28,15.36,6.15,16,1.94,13.65,Payment Failure
+2026-07-17,Account Services,Global,19,13.3,14.05,18,1.21,15.94,Login & Access
+2026-07-17,Logistics Support,Global,38,11.52,7.77,20,4.64,12.48,Delivery Tracking
+2026-07-18,Refund Desk,South,96,59.32,51.44,7,15.73,34.54,Refund Delay
+2026-07-18,Refund Desk,West,129,59.28,50.42,10,11.57,46.86,Refund Delay
+2026-07-18,Refund Desk,North,23,19.38,9.6,14,2.41,9.05,Refund Delay
+2026-07-18,Payments Operations,Global,74,31.74,35.02,20,3.26,32.4,Payment Failure
+2026-07-18,Account Services,Global,39,20.81,9.66,18,3.95,18.84,Login & Access
+2026-07-18,Logistics Support,Global,16,9.34,13.67,15,4.77,10.89,Delivery Tracking
+2026-07-19,Refund Desk,South,102,57.63,55.16,10,12.61,44.22,Refund Delay
+2026-07-19,Refund Desk,West,103,59.44,56.99,10,12.1,52.07,Refund Delay
+2026-07-19,Refund Desk,North,26,8.85,7.75,16,1.18,13.19,Refund Delay
+2026-07-19,Payments Operations,Global,92,33.98,42.65,18,3.22,30.33,Payment Failure
+2026-07-19,Account Services,Global,30,8.3,11.66,14,4.25,8.19,Login & Access
+2026-07-19,Logistics Support,Global,29,12.41,7.71,21,2.55,15.37,Delivery Tracking
+2026-07-20,Refund Desk,South,111,67.11,52.12,10,15.18,31.82,Refund Delay
+2026-07-20,Refund Desk,West,137,90.28,53.96,9,18.77,42.64,Refund Delay
+2026-07-20,Refund Desk,North,36,14.72,7.66,21,3.1,19.97,Refund Delay
+2026-07-20,Payments Operations,Global,68,26.68,43.46,15,3.7,21.68,Payment Failure
+2026-07-20,Account Services,Global,31,16.21,14.96,19,2.59,16.39,Login & Access
+2026-07-20,Logistics Support,Global,18,8.78,15.43,19,3.09,8.33,Delivery Tracking
+2026-07-21,Refund Desk,South,131,57.92,57.07,7,13.69,43.3,Refund Delay
+2026-07-21,Refund Desk,West,132,62.12,48.2,8,13.87,47.1,Refund Delay
+2026-07-21,Refund Desk,North,37,19.22,11.3,15,1.85,19.71,Refund Delay
+2026-07-21,Payments Operations,Global,101,41.73,48.45,21,4.08,24.07,Payment Failure
+2026-07-21,Account Services,Global,32,9.58,15.03,16,2.88,17.14,Login & Access
+2026-07-21,Logistics Support,Global,29,9.63,5.0,22,3.44,10.62,Delivery Tracking
+2026-07-22,Refund Desk,South,91,69.54,49.15,9,16.36,49.23,Refund Delay
+2026-07-22,Refund Desk,West,139,66.12,57.08,10,15.11,33.08,Refund Delay
+2026-07-22,Refund Desk,North,15,12.07,12.41,22,1.41,19.29,Refund Delay
+2026-07-22,Payments Operations,Global,69,47.99,32.04,17,5.38,31.92,Payment Failure
+2026-07-22,Account Services,Global,39,24.55,15.24,22,5.75,8.37,Login & Access
+2026-07-22,Logistics Support,Global,15,19.54,5.82,22,3.21,18.37,Delivery Tracking
+2026-07-23,Refund Desk,South,95,59.19,49.1,10,16.01,48.68,Refund Delay
+2026-07-23,Refund Desk,West,124,79.07,46.03,9,11.39,36.92,Refund Delay
+2026-07-23,Refund Desk,North,29,20.69,5.19,20,3.64,14.44,Refund Delay
+2026-07-23,Payments Operations,Global,40,23.84,6.32,18,4.04,9.52,Payment Failure
+2026-07-23,Account Services,Global,36,16.9,14.68,19,4.27,8.28,Login & Access
+2026-07-23,Logistics Support,Global,27,8.03,17.07,20,5.72,16.48,Delivery Tracking
+2026-07-24,Refund Desk,South,91,72.16,44.47,7,18.23,38.1,Refund Delay
+2026-07-24,Refund Desk,West,77,42.99,59.96,7,13.61,38.97,Refund Delay
+2026-07-24,Refund Desk,North,22,22.61,5.61,18,3.54,16.41,Refund Delay
+2026-07-24,Payments Operations,Global,17,25.61,11.57,22,4.31,13.76,Payment Failure
+2026-07-24,Account Services,Global,16,12.96,8.29,20,3.99,10.6,Login & Access
+2026-07-24,Logistics Support,Global,24,16.71,16.92,15,1.87,10.53,Delivery Tracking
+2026-07-25,Refund Desk,South,96,58.0,54.53,10,17.56,48.3,Refund Delay
+2026-07-25,Refund Desk,West,92,77.49,51.23,6,16.19,40.11,Refund Delay
+2026-07-25,Refund Desk,North,20,17.46,5.33,17,5.58,10.52,Refund Delay
+2026-07-25,Payments Operations,Global,42,18.26,7.2,18,2.46,8.59,Payment Failure
+2026-07-25,Account Services,Global,37,24.75,15.18,14,4.77,8.05,Login & Access
+2026-07-25,Logistics Support,Global,42,11.66,16.48,14,4.48,15.01,Delivery Tracking
+2026-07-26,Refund Desk,South,78,74.61,56.21,9,11.8,48.01,Refund Delay
+2026-07-26,Refund Desk,West,134,75.47,50.7,6,18.24,38.81,Refund Delay
+2026-07-26,Refund Desk,North,24,13.14,11.16,22,4.8,13.95,Refund Delay
+2026-07-26,Payments Operations,Global,16,13.34,16.5,22,1.18,16.24,Payment Failure
+2026-07-26,Account Services,Global,30,10.62,17.72,19,3.56,14.18,Login & Access
+2026-07-26,Logistics Support,Global,29,10.09,13.28,16,3.04,19.51,Delivery Tracking
+2026-07-27,Refund Desk,South,109,63.0,54.22,9,10.85,47.63,Refund Delay
+2026-07-27,Refund Desk,West,110,47.5,53.27,10,16.24,43.83,Refund Delay
+2026-07-27,Refund Desk,North,22,26.43,12.73,14,2.1,13.13,Refund Delay
+2026-07-27,Payments Operations,Global,22,14.75,10.28,14,5.38,17.49,Payment Failure
+2026-07-27,Account Services,Global,35,10.7,5.09,21,1.52,15.2,Login & Access
+2026-07-27,Logistics Support,Global,80,45.94,35.75,15,2.85,15.81,Delivery Tracking
+2026-07-28,Refund Desk,South,98,72.56,48.11,9,13.93,38.23,Refund Delay
+2026-07-28,Refund Desk,West,91,73.56,47.14,10,17.86,38.94,Refund Delay
+2026-07-28,Refund Desk,North,21,8.55,7.23,15,2.73,18.22,Refund Delay
+2026-07-28,Payments Operations,Global,24,22.55,8.02,15,5.4,17.65,Payment Failure
+2026-07-28,Account Services,Global,30,23.53,8.47,22,5.93,8.18,Login & Access
+2026-07-28,Logistics Support,Global,93,40.91,29.3,14,3.82,11.22,Delivery Tracking
+2026-07-29,Refund Desk,South,86,72.59,53.92,8,18.93,41.56,Refund Delay
+2026-07-29,Refund Desk,West,97,85.2,51.06,6,15.39,43.86,Refund Delay
+2026-07-29,Refund Desk,North,31,16.35,6.02,14,2.65,19.18,Refund Delay
+2026-07-29,Payments Operations,Global,34,22.24,14.92,15,4.14,19.2,Payment Failure
+2026-07-29,Account Services,Global,38,22.59,5.61,20,2.74,18.53,Login & Access
+2026-07-29,Logistics Support,Global,77,38.94,25.56,20,4.24,14.22,Delivery Tracking
+2026-07-30,Refund Desk,South,124,62.08,55.36,9,14.2,44.08,Refund Delay
+2026-07-30,Refund Desk,West,131,66.33,50.06,6,13.01,39.29,Refund Delay
+2026-07-30,Refund Desk,North,22,9.74,15.01,15,1.69,12.09,Refund Delay
+2026-07-30,Payments Operations,Global,22,25.7,11.3,14,1.94,9.76,Payment Failure
+2026-07-30,Account Services,Global,36,16.61,17.4,15,5.16,16.96,Login & Access
+2026-07-30,Logistics Support,Global,92,37.89,29.61,18,4.07,11.02,Delivery Tracking
+2026-07-31,Refund Desk,South,114,55.92,57.21,8,14.93,40.36,Refund Delay
+2026-07-31,Refund Desk,West,111,76.15,59.45,9,14.35,39.76,Refund Delay
+2026-07-31,Refund Desk,North,18,20.8,11.27,21,1.3,14.33,Refund Delay
+2026-07-31,Payments Operations,Global,16,17.56,5.22,20,2.16,17.96,Payment Failure
+2026-07-31,Account Services,Global,28,8.21,9.56,22,4.78,8.53,Login & Access
+2026-07-31,Logistics Support,Global,79,40.31,35.83,17,2.9,15.49,Delivery Tracking

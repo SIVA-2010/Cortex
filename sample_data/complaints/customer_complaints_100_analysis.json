@@ -1,0 +1,931 @@
+{
+  "analysis": {
+    "executive_summary": "The dataset shows concentrated complaint pressure in Payment Failure and Login & Access, with Refund Delay creating the strongest customer-friction signal due to long resolution times, repeated contacts, and refund cost exposure. SLA performance is weak overall, with elevated escalation across most major categories and particularly high risk in Service Outage, Privacy & Data, and Refund Delay. Recent volume indicates emerging pressure in Delivery Tracking and a sharp late-month increase in Payment Failure, while Service Outage remains a low-volume but high-severity operational risk. PII appears in a meaningful subset of complaints, reinforcing handling and privacy-control sensitivity. Observed patterns suggest product reliability, transaction processing, and case-handling delays are the main complaint themes; root cause analysis should be handled separately.",
+    "taxonomy": [
+      {
+        "category": "Payment Failure",
+        "description": "Failed transactions, debited funds after failure, gateway timeout, or payment processing interruption.",
+        "volume": 21,
+        "percentage": 21.0,
+        "severity": "high"
+      },
+      {
+        "category": "Login & Access",
+        "description": "Sign-in failures, password reset issues, token refresh errors, and account access problems.",
+        "volume": 20,
+        "percentage": 20.0,
+        "severity": "high"
+      },
+      {
+        "category": "Refund Delay",
+        "description": "Delayed reimbursement, pending refunds, and repeated follow-up on money-back requests.",
+        "volume": 15,
+        "percentage": 15.0,
+        "severity": "high"
+      },
+      {
+        "category": "Product Defect",
+        "description": "Application bugs, broken features, crashes, and unexpected errors after updates.",
+        "volume": 14,
+        "percentage": 14.0,
+        "severity": "high"
+      },
+      {
+        "category": "Billing & Charges",
+        "description": "Duplicate charges, incorrect fees, and invoice discrepancies.",
+        "volume": 10,
+        "percentage": 10.0,
+        "severity": "medium"
+      },
+      {
+        "category": "Privacy & Data",
+        "description": "Suspected data exposure, privacy leakage, or incorrect display of another customer’s information.",
+        "volume": 8,
+        "percentage": 8.0,
+        "severity": "critical"
+      },
+      {
+        "category": "Delivery Tracking",
+        "description": "Delayed delivery status, incorrect courier updates, and missing tracking visibility.",
+        "volume": 7,
+        "percentage": 7.0,
+        "severity": "medium"
+      },
+      {
+        "category": "Service Outage",
+        "description": "Complete or repeated service downtime preventing access or transactions.",
+        "volume": 5,
+        "percentage": 5.0,
+        "severity": "critical"
+      }
+    ],
+    "recurring_issues": [
+      {
+        "issue": "Payment failures with debited funds or gateway timeout patterns",
+        "category": "Payment Failure",
+        "volume": 21,
+        "business_impact": "High customer frustration and financial trust risk; strong escalation and SLA breach rates indicate operational strain and potential compensation exposure.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000052",
+          "CMP-202607-000067"
+        ],
+        "confidence": 0.96
+      },
+      {
+        "issue": "Login failures after reset or update, including token refresh errors",
+        "category": "Login & Access",
+        "volume": 20,
+        "business_impact": "Blocks access to core services and drives repeat contacts and escalations, affecting self-service adoption and support load.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000043",
+          "CMP-202607-000019"
+        ],
+        "confidence": 0.93
+      },
+      {
+        "issue": "Refunds remaining pending for extended periods with repeated follow-up",
+        "category": "Refund Delay",
+        "volume": 15,
+        "business_impact": "Creates direct customer dissatisfaction and refund liability pressure; highest repeat-contact intensity suggests prolonged case handling.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000050",
+          "CMP-202607-000037"
+        ],
+        "confidence": 0.95
+      },
+      {
+        "issue": "Application defects after release, including crashes and broken features",
+        "category": "Product Defect",
+        "volume": 14,
+        "business_impact": "Impacts product usability and increases repeat contacts; can amplify support demand after version changes.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000057",
+          "CMP-202607-000088"
+        ],
+        "confidence": 0.9
+      },
+      {
+        "issue": "Incorrect or duplicate billing charges",
+        "category": "Billing & Charges",
+        "volume": 10,
+        "business_impact": "Direct financial dissatisfaction and dispute handling workload; refund or adjustment activity may follow.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000036",
+          "CMP-202607-000041"
+        ],
+        "confidence": 0.89
+      },
+      {
+        "issue": "Suspected privacy exposure or incorrect customer data visibility",
+        "category": "Privacy & Data",
+        "volume": 8,
+        "business_impact": "High reputational and compliance sensitivity; even low volume can create severe trust and regulatory risk.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000005",
+          "CMP-202607-000031"
+        ],
+        "confidence": 0.94
+      },
+      {
+        "issue": "Tracking status not updating or showing incorrect courier information",
+        "category": "Delivery Tracking",
+        "volume": 7,
+        "business_impact": "Reduces delivery transparency and increases inbound contacts, especially when customers cannot verify order progress.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000023",
+          "CMP-202607-000008"
+        ],
+        "confidence": 0.88
+      },
+      {
+        "issue": "Repeated or complete service outages blocking portal access or transactions",
+        "category": "Service Outage",
+        "volume": 5,
+        "business_impact": "Highest operational severity; even limited volume can stop transactions and trigger urgent escalation.",
+        "evidence_complaint_ids": [
+          "CMP-202607-000004",
+          "CMP-202607-000009"
+        ],
+        "confidence": 0.97
+      }
+    ],
+    "emerging_issues": [
+      {
+        "issue": "Delivery Tracking complaints are accelerating in the final week",
+        "category": "Delivery Tracking",
+        "recent_7_day_count": 5,
+        "previous_7_day_count": 1,
+        "growth_percent": 400.0,
+        "risk": "high",
+        "evidence_complaint_ids": [
+          "CMP-202607-000033",
+          "CMP-202607-000056",
+          "CMP-202607-000008",
+          "CMP-202607-000054",
+          "CMP-202607-000055"
+        ]
+      },
+      {
+        "issue": "Payment Failure volume is rising sharply late in the month",
+        "category": "Payment Failure",
+        "recent_7_day_count": 8,
+        "previous_7_day_count": 2,
+        "growth_percent": 300.0,
+        "risk": "critical",
+        "evidence_complaint_ids": [
+          "CMP-202607-000067",
+          "CMP-202607-000016",
+          "CMP-202607-000015",
+          "CMP-202607-000061",
+          "CMP-202607-000059"
+        ]
+      },
+      {
+        "issue": "Service Outage remains low volume but is increasing and fully breaching SLA in the recent window",
+        "category": "Service Outage",
+        "recent_7_day_count": 2,
+        "previous_7_day_count": 1,
+        "growth_percent": 100.0,
+        "risk": "critical",
+        "evidence_complaint_ids": [
+          "CMP-202607-000004",
+          "CMP-202607-000051"
+        ]
+      }
+    ],
+    "sla_findings": [
+      "Overall SLA breach rate is 60.0%, indicating material service-performance pressure across the complaint set.",
+      "Refund Delay has the longest average resolution time and a high SLA breach rate, making it the clearest case-handling bottleneck.",
+      "Service Outage has the highest SLA risk profile with 80.0% breach rate and 80.0% escalation rate, despite low volume.",
+      "Payment Failure and Login & Access both combine high volume with elevated breach and escalation rates, suggesting broad customer exposure.",
+      "Privacy & Data has the highest escalation rate, which is a strong signal of urgency and sensitivity even at lower volume.",
+      "Average first response time is 579.61 minutes, which is a customer-experience risk indicator for time-sensitive issues.",
+      "Open complaints remain high relative to resolved complaints, indicating backlog pressure and potential aging risk."
+    ],
+    "customer_impact": [
+      "Customers are unable to complete payments or access accounts, directly blocking core journeys.",
+      "Refund delays create repeated follow-up behavior and prolonged dissatisfaction.",
+      "Privacy-related complaints carry elevated trust and compliance sensitivity, even when volume is lower.",
+      "Service outages and product defects can interrupt transactions and degrade confidence in the platform.",
+      "High escalation and repeat-contact patterns indicate customers are not getting timely closure on first contact.",
+      "PII appears in a subset of complaints, increasing handling sensitivity and the need for controlled workflows."
+    ],
+    "data_quality_notes": [
+      "Dataset is synthetic demonstration data and should not be treated as production evidence.",
+      "All 100 rows are valid; no duplicate, empty-ID, empty-text, or invalid-date rows were removed.",
+      "PII masking was applied; personal information should not be reproduced.",
+      "Complaint IDs are available for representative samples and emerging-issue evidence only; no additional IDs were inferred.",
+      "No root cause conclusions are provided in this output."
+    ],
+    "next_analysis_questions": [
+      "Which products and versions are most associated with Payment Failure and Login & Access complaints?",
+      "Are SLA breaches concentrated in specific channels such as Call Centre or Mobile App?",
+      "Do late-month spikes align with releases, configuration changes, or external incidents?",
+      "Which complaint types are driving the highest repeat-contact and backlog aging?",
+      "Are Privacy & Data complaints linked to a specific workflow, permission change, or portal module?",
+      "What proportion of open complaints are older than the SLA threshold by category?",
+      "Do refund delays correlate with billing disputes or payment failures?"
+    ]
+  },
+  "dataset_summary": {
+    "source_file": "customer_complaints_100.csv",
+    "source_path": "C:\\Users\\sivag\\Downloads\\CORTEX\\sample_data\\complaints\\customer_complaints_100.csv",
+    "file_sha256": "94a1fd7220de1731c85a01b12a07c3ce6352ecaff0f0d68de07f91f190e24c13",
+    "file_size_mb": 0.0241,
+    "original_row_count": 100,
+    "valid_row_count": 100,
+    "date_range": {
+      "start": "2026-07-01T11:26:00+00:00",
+      "end": "2026-07-31T22:31:00+00:00"
+    },
+    "category_metrics": [
+      {
+        "category": "Payment Failure",
+        "count": 21,
+        "percentage": 21.0,
+        "sla_breach_rate": 71.43,
+        "escalation_rate": 76.19,
+        "average_resolution_hours": 36.67,
+        "average_repeat_contacts": 1.19,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 13
+      },
+      {
+        "category": "Login & Access",
+        "count": 20,
+        "percentage": 20.0,
+        "sla_breach_rate": 55.0,
+        "escalation_rate": 75.0,
+        "average_resolution_hours": 41.01,
+        "average_repeat_contacts": 1.25,
+        "refund_total": 0.0,
+        "critical_count": 2,
+        "high_or_critical_count": 8
+      },
+      {
+        "category": "Refund Delay",
+        "count": 15,
+        "percentage": 15.0,
+        "sla_breach_rate": 73.33,
+        "escalation_rate": 80.0,
+        "average_resolution_hours": 57.85,
+        "average_repeat_contacts": 2.67,
+        "refund_total": 2147.07,
+        "critical_count": 0,
+        "high_or_critical_count": 5
+      },
+      {
+        "category": "Product Defect",
+        "count": 14,
+        "percentage": 14.0,
+        "sla_breach_rate": 50.0,
+        "escalation_rate": 64.29,
+        "average_resolution_hours": 31.14,
+        "average_repeat_contacts": 1.64,
+        "refund_total": 0.0,
+        "critical_count": 1,
+        "high_or_critical_count": 9
+      },
+      {
+        "category": "Billing & Charges",
+        "count": 10,
+        "percentage": 10.0,
+        "sla_breach_rate": 50.0,
+        "escalation_rate": 60.0,
+        "average_resolution_hours": 30.86,
+        "average_repeat_contacts": 1.4,
+        "refund_total": 1377.53,
+        "critical_count": 1,
+        "high_or_critical_count": 7
+      },
+      {
+        "category": "Privacy & Data",
+        "count": 8,
+        "percentage": 8.0,
+        "sla_breach_rate": 62.5,
+        "escalation_rate": 87.5,
+        "average_resolution_hours": 26.35,
+        "average_repeat_contacts": 1.12,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 7
+      },
+      {
+        "category": "Delivery Tracking",
+        "count": 7,
+        "percentage": 7.0,
+        "sla_breach_rate": 28.57,
+        "escalation_rate": 28.57,
+        "average_resolution_hours": 32.67,
+        "average_repeat_contacts": 1.29,
+        "refund_total": 0.0,
+        "critical_count": 0,
+        "high_or_critical_count": 3
+      },
+      {
+        "category": "Service Outage",
+        "count": 5,
+        "percentage": 5.0,
+        "sla_breach_rate": 80.0,
+        "escalation_rate": 80.0,
+        "average_resolution_hours": 11.39,
+        "average_repeat_contacts": 1.6,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 4
+      }
+    ],
+    "channel_distribution": [
+      {
+        "name": "Mobile App",
+        "count": 24,
+        "percentage": 24.0
+      },
+      {
+        "name": "Call Centre",
+        "count": 23,
+        "percentage": 23.0
+      },
+      {
+        "name": "Email",
+        "count": 22,
+        "percentage": 22.0
+      },
+      {
+        "name": "Chat",
+        "count": 20,
+        "percentage": 20.0
+      },
+      {
+        "name": "Web",
+        "count": 11,
+        "percentage": 11.0
+      }
+    ],
+    "region_distribution": [
+      {
+        "name": "Central",
+        "count": 25,
+        "percentage": 25.0
+      },
+      {
+        "name": "North",
+        "count": 20,
+        "percentage": 20.0
+      },
+      {
+        "name": "East",
+        "count": 19,
+        "percentage": 19.0
+      },
+      {
+        "name": "South",
+        "count": 18,
+        "percentage": 18.0
+      },
+      {
+        "name": "West",
+        "count": 18,
+        "percentage": 18.0
+      }
+    ],
+    "product_distribution": [
+      {
+        "name": "Customer Portal",
+        "count": 33,
+        "percentage": 33.0
+      },
+      {
+        "name": "Mobile Payments",
+        "count": 21,
+        "percentage": 21.0
+      },
+      {
+        "name": "Refund Service",
+        "count": 15,
+        "percentage": 15.0
+      },
+      {
+        "name": "Mobile App",
+        "count": 14,
+        "percentage": 14.0
+      },
+      {
+        "name": "Billing Platform",
+        "count": 10,
+        "percentage": 10.0
+      },
+      {
+        "name": "Order Tracking",
+        "count": 7,
+        "percentage": 7.0
+      }
+    ],
+    "priority_distribution": [
+      {
+        "name": "high",
+        "count": 43,
+        "percentage": 43.0
+      },
+      {
+        "name": "medium",
+        "count": 40,
+        "percentage": 40.0
+      },
+      {
+        "name": "critical",
+        "count": 13,
+        "percentage": 13.0
+      },
+      {
+        "name": "low",
+        "count": 4,
+        "percentage": 4.0
+      }
+    ],
+    "resolution_status_distribution": [
+      {
+        "name": "escalated",
+        "count": 37,
+        "percentage": 37.0
+      },
+      {
+        "name": "resolved",
+        "count": 34,
+        "percentage": 34.0
+      },
+      {
+        "name": "open",
+        "count": 15,
+        "percentage": 15.0
+      },
+      {
+        "name": "pending",
+        "count": 14,
+        "percentage": 14.0
+      }
+    ],
+    "daily_volume": [
+      {
+        "date": "2026-07-01",
+        "count": 2
+      },
+      {
+        "date": "2026-07-02",
+        "count": 4
+      },
+      {
+        "date": "2026-07-03",
+        "count": 4
+      },
+      {
+        "date": "2026-07-04",
+        "count": 4
+      },
+      {
+        "date": "2026-07-05",
+        "count": 6
+      },
+      {
+        "date": "2026-07-06",
+        "count": 1
+      },
+      {
+        "date": "2026-07-07",
+        "count": 4
+      },
+      {
+        "date": "2026-07-08",
+        "count": 2
+      },
+      {
+        "date": "2026-07-09",
+        "count": 3
+      },
+      {
+        "date": "2026-07-10",
+        "count": 3
+      },
+      {
+        "date": "2026-07-11",
+        "count": 2
+      },
+      {
+        "date": "2026-07-12",
+        "count": 1
+      },
+      {
+        "date": "2026-07-13",
+        "count": 8
+      },
+      {
+        "date": "2026-07-14",
+        "count": 4
+      },
+      {
+        "date": "2026-07-15",
+        "count": 4
+      },
+      {
+        "date": "2026-07-16",
+        "count": 4
+      },
+      {
+        "date": "2026-07-17",
+        "count": 2
+      },
+      {
+        "date": "2026-07-18",
+        "count": 1
+      },
+      {
+        "date": "2026-07-19",
+        "count": 1
+      },
+      {
+        "date": "2026-07-20",
+        "count": 3
+      },
+      {
+        "date": "2026-07-21",
+        "count": 1
+      },
+      {
+        "date": "2026-07-22",
+        "count": 3
+      },
+      {
+        "date": "2026-07-23",
+        "count": 7
+      },
+      {
+        "date": "2026-07-24",
+        "count": 3
+      },
+      {
+        "date": "2026-07-25",
+        "count": 3
+      },
+      {
+        "date": "2026-07-26",
+        "count": 3
+      },
+      {
+        "date": "2026-07-27",
+        "count": 3
+      },
+      {
+        "date": "2026-07-28",
+        "count": 1
+      },
+      {
+        "date": "2026-07-29",
+        "count": 1
+      },
+      {
+        "date": "2026-07-30",
+        "count": 4
+      },
+      {
+        "date": "2026-07-31",
+        "count": 8
+      }
+    ],
+    "emerging_issues": [
+      {
+        "category": "Delivery Tracking",
+        "recent_7_day_count": 5,
+        "previous_7_day_count": 1,
+        "growth_percent": 400.0,
+        "sla_breach_rate": 0.0,
+        "sample_complaint_ids": [
+          "CMP-202607-000033",
+          "CMP-202607-000056",
+          "CMP-202607-000008",
+          "CMP-202607-000054",
+          "CMP-202607-000055"
+        ]
+      },
+      {
+        "category": "Payment Failure",
+        "recent_7_day_count": 8,
+        "previous_7_day_count": 2,
+        "growth_percent": 300.0,
+        "sla_breach_rate": 87.5,
+        "sample_complaint_ids": [
+          "CMP-202607-000067",
+          "CMP-202607-000016",
+          "CMP-202607-000015",
+          "CMP-202607-000061",
+          "CMP-202607-000059"
+        ]
+      },
+      {
+        "category": "Service Outage",
+        "recent_7_day_count": 2,
+        "previous_7_day_count": 1,
+        "growth_percent": 100.0,
+        "sla_breach_rate": 100.0,
+        "sample_complaint_ids": [
+          "CMP-202607-000004",
+          "CMP-202607-000051"
+        ]
+      }
+    ],
+    "overall_metrics": {
+      "sla_breach_count": 60,
+      "sla_breach_rate": 60.0,
+      "escalated_count": 71,
+      "escalation_rate": 71.0,
+      "average_first_response_minutes": 579.61,
+      "average_resolution_hours": 36.99,
+      "average_repeat_contacts": 1.53,
+      "total_refund_amount": 3524.6,
+      "open_complaints": 66
+    },
+    "pii_summary": {
+      "rows_with_pii": 20,
+      "rows_with_detected_pii": 20,
+      "total_detected_items": 77,
+      "detected_types": {
+        "account_number": 20,
+        "email": 14,
+        "person_name": 14,
+        "phone": 14,
+        "transaction_identifier": 14
+      },
+      "masking_applied": true
+    },
+    "decision_signals": {
+      "highest_volume_category": {
+        "category": "Payment Failure",
+        "count": 21,
+        "percentage": 21.0,
+        "sla_breach_rate": 71.43,
+        "escalation_rate": 76.19,
+        "average_resolution_hours": 36.67,
+        "average_repeat_contacts": 1.19,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 13
+      },
+      "highest_sla_risk_category": {
+        "category": "Service Outage",
+        "count": 5,
+        "percentage": 5.0,
+        "sla_breach_rate": 80.0,
+        "escalation_rate": 80.0,
+        "average_resolution_hours": 11.39,
+        "average_repeat_contacts": 1.6,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 4
+      },
+      "highest_escalation_category": {
+        "category": "Privacy & Data",
+        "count": 8,
+        "percentage": 8.0,
+        "sla_breach_rate": 62.5,
+        "escalation_rate": 87.5,
+        "average_resolution_hours": 26.35,
+        "average_repeat_contacts": 1.12,
+        "refund_total": 0.0,
+        "critical_count": 3,
+        "high_or_critical_count": 7
+      },
+      "highest_refund_cost_category": {
+        "category": "Refund Delay",
+        "count": 15,
+        "percentage": 15.0,
+        "sla_breach_rate": 73.33,
+        "escalation_rate": 80.0,
+        "average_resolution_hours": 57.85,
+        "average_repeat_contacts": 2.67,
+        "refund_total": 2147.07,
+        "critical_count": 0,
+        "high_or_critical_count": 5
+      }
+    },
+    "representative_samples": [
+      {
+        "complaint_id": "CMP-202607-000004",
+        "received_at": "2026-07-30T16:16:00+00:00",
+        "category": "Service Outage",
+        "severity": "critical",
+        "channel": "Email",
+        "region": "Central",
+        "product": "Customer Portal",
+        "product_version": "6.3",
+        "sla_breached": true,
+        "repeat_contact_count": 2,
+        "masked_complaint_text": "Repeated downtime is blocking all transactions."
+      },
+      {
+        "complaint_id": "CMP-202607-000005",
+        "received_at": "2026-07-16T04:30:00+00:00",
+        "category": "Privacy & Data",
+        "severity": "critical",
+        "channel": "Call Centre",
+        "region": "East",
+        "product": "Customer Portal",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 2,
+        "masked_complaint_text": "I suspect a privacy exposure because another customer's details appeared."
+      },
+      {
+        "complaint_id": "CMP-202607-000009",
+        "received_at": "2026-07-19T17:59:00+00:00",
+        "category": "Service Outage",
+        "severity": "critical",
+        "channel": "Call Centre",
+        "region": "East",
+        "product": "Customer Portal",
+        "product_version": "6.3",
+        "sla_breached": true,
+        "repeat_contact_count": 1,
+        "masked_complaint_text": "A complete outage is preventing access to the portal."
+      },
+      {
+        "complaint_id": "CMP-202607-000052",
+        "received_at": "2026-07-10T19:41:00+00:00",
+        "category": "Payment Failure",
+        "severity": "critical",
+        "channel": "Chat",
+        "region": "North",
+        "product": "Mobile Payments",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 1,
+        "masked_complaint_text": "My payment failed with a gateway timeout, but the money was debited."
+      },
+      {
+        "complaint_id": "CMP-202607-000043",
+        "received_at": "2026-07-07T05:15:00+00:00",
+        "category": "Login & Access",
+        "severity": "critical",
+        "channel": "Call Centre",
+        "region": "East",
+        "product": "Customer Portal",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 1,
+        "masked_complaint_text": "The app says [ACCOUNT_REDACTED] after a password reset."
+      },
+      {
+        "complaint_id": "CMP-202607-000067",
+        "received_at": "2026-07-26T03:44:00+00:00",
+        "category": "Payment Failure",
+        "severity": "critical",
+        "channel": "Call Centre",
+        "region": "Central",
+        "product": "Mobile Payments",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 0,
+        "masked_complaint_text": "My payment failed with a gateway timeout, but the money was debited."
+      },
+      {
+        "complaint_id": "CMP-202607-000031",
+        "received_at": "2026-07-07T14:14:00+00:00",
+        "category": "Privacy & Data",
+        "severity": "critical",
+        "channel": "Call Centre",
+        "region": "South",
+        "product": "Customer Portal",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 0,
+        "masked_complaint_text": "A possible data leak exposed [ACCOUNT_REDACTED] in the portal."
+      },
+      {
+        "complaint_id": "CMP-202607-000057",
+        "received_at": "2026-07-25T05:38:00+00:00",
+        "category": "Product Defect",
+        "severity": "critical",
+        "channel": "Chat",
+        "region": "Central",
+        "product": "Mobile App",
+        "product_version": "6.4",
+        "sla_breached": false,
+        "repeat_contact_count": 3,
+        "masked_complaint_text": "[NAME_REDACTED]. Email [EMAIL_REDACTED], phone [PHONE_REDACTED]. [ACCOUNT_REDACTED]. [TRANSACTION_REDACTED]. The latest version has a broken feature and closes automatically."
+      },
+      {
+        "complaint_id": "CMP-202607-000019",
+        "received_at": "2026-07-22T11:55:00+00:00",
+        "category": "Login & Access",
+        "severity": "critical",
+        "channel": "Email",
+        "region": "East",
+        "product": "Customer Portal",
+        "product_version": "6.4",
+        "sla_breached": false,
+        "repeat_contact_count": 2,
+        "masked_complaint_text": "Sign in fails with a token refresh error after the latest update."
+      },
+      {
+        "complaint_id": "CMP-202607-000036",
+        "received_at": "2026-07-02T05:35:00+00:00",
+        "category": "Billing & Charges",
+        "severity": "critical",
+        "channel": "Email",
+        "region": "East",
+        "product": "Billing Platform",
+        "product_version": "4.7",
+        "sla_breached": false,
+        "repeat_contact_count": 1,
+        "masked_complaint_text": "The statement shows a duplicate charge for one transaction."
+      },
+      {
+        "complaint_id": "CMP-202607-000088",
+        "received_at": "2026-07-30T05:36:00+00:00",
+        "category": "Product Defect",
+        "severity": "high",
+        "channel": "Call Centre",
+        "region": "Central",
+        "product": "Mobile App",
+        "product_version": "6.4",
+        "sla_breached": true,
+        "repeat_contact_count": 4,
+        "masked_complaint_text": "A software bug causes an unexpected error on every attempt."
+      },
+      {
+        "complaint_id": "CMP-202607-000041",
+        "received_at": "2026-07-15T05:11:00+00:00",
+        "category": "Billing & Charges",
+        "severity": "high",
+        "channel": "Web",
+        "region": "Central",
+        "product": "Billing Platform",
+        "product_version": "4.7",
+        "sla_breached": true,
+        "repeat_contact_count": 4,
+        "masked_complaint_text": "The invoice contains an incorrect charge and an unexpected fee."
+      },
+      {
+        "complaint_id": "CMP-202607-000050",
+        "received_at": "2026-07-03T17:10:00+00:00",
+        "category": "Refund Delay",
+        "severity": "high",
+        "channel": "Mobile App",
+        "region": "South",
+        "product": "Refund Service",
+        "product_version": "3.2",
+        "sla_breached": true,
+        "repeat_contact_count": 3,
+        "masked_complaint_text": "My refund is pending and I am still waiting for the money back."
+      },
+      {
+        "complaint_id": "CMP-202607-000037",
+        "received_at": "2026-07-01T15:51:00+00:00",
+        "category": "Refund Delay",
+        "severity": "high",
+        "channel": "Web",
+        "region": "Central",
+        "product": "Refund Service",
+        "product_version": "3.2",
+        "sla_breached": true,
+        "repeat_contact_count": 3,
+        "masked_complaint_text": "[NAME_REDACTED]. Email [EMAIL_REDACTED], phone [PHONE_REDACTED]. [ACCOUNT_REDACTED]. [TRANSACTION_REDACTED]. The reimbursement has not reached my account."
+      },
+      {
+        "complaint_id": "CMP-202607-000023",
+        "received_at": "2026-07-16T01:14:00+00:00",
+        "category": "Delivery Tracking",
+        "severity": "high",
+        "channel": "Web",
+        "region": "South",
+        "product": "Order Tracking",
+        "product_version": "5.1",
+        "sla_breached": true,
+        "repeat_contact_count": 0,
+        "masked_complaint_text": "Delivery delayed and the mobile app displays the wrong courier status."
+      },
+      {
+        "complaint_id": "CMP-202607-000008",
+        "received_at": "2026-07-31T13:53:00+00:00",
+        "category": "Delivery Tracking",
+        "severity": "high",
+        "channel": "Email",
+        "region": "West",
+        "product": "Order Tracking",
+        "product_version": "5.1",
+        "sla_breached": false,
+        "repeat_contact_count": 2,
+        "masked_complaint_text": "The order shows not delivered but there is no useful tracking status."
+      }
+    ],
+    "data_quality": {
+      "duplicate_rows_removed": 0,
+      "empty_ids_removed": 0,
+      "empty_text_rows_removed": 0,
+      "invalid_date_rows_removed": 0,
+      "warnings": []
+    }
+  },
+  "provider": "azure",
+  "deployment": "cortex-llm",
+  "synthetic_data": true
+}

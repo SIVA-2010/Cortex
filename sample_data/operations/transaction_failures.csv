@@ -1,0 +1,94 @@
+event_date,product,version,failure_type,failure_count,total_attempts,failure_rate_pct,region,related_incident_id,related_category
+2026-07-01,Mobile Payments,6.4,gateway_timeout,42,2843,1.477,Global,,Payment Failure
+2026-07-01,Customer Portal,6.4,token_refresh_failure,34,3629,0.937,Global,,Login & Access
+2026-07-01,Order Tracking,5.1,courier_sync_delay,23,3925,0.586,Global,,Delivery Tracking
+2026-07-02,Mobile Payments,6.4,gateway_timeout,39,2810,1.388,Global,,Payment Failure
+2026-07-02,Customer Portal,6.4,token_refresh_failure,37,3830,0.966,Global,,Login & Access
+2026-07-02,Order Tracking,5.1,courier_sync_delay,16,3739,0.428,Global,,Delivery Tracking
+2026-07-03,Mobile Payments,6.4,gateway_timeout,49,3772,1.299,Global,,Payment Failure
+2026-07-03,Customer Portal,6.4,token_refresh_failure,42,4096,1.025,Global,,Login & Access
+2026-07-03,Order Tracking,5.1,courier_sync_delay,22,3605,0.61,Global,,Delivery Tracking
+2026-07-04,Mobile Payments,6.4,gateway_timeout,46,3801,1.21,Global,,Payment Failure
+2026-07-04,Customer Portal,6.4,token_refresh_failure,18,3091,0.582,Global,,Login & Access
+2026-07-04,Order Tracking,5.1,courier_sync_delay,11,3857,0.285,Global,,Delivery Tracking
+2026-07-05,Mobile Payments,6.4,gateway_timeout,41,2826,1.451,Global,,Payment Failure
+2026-07-05,Customer Portal,6.4,token_refresh_failure,32,2800,1.143,Global,,Login & Access
+2026-07-05,Order Tracking,5.1,courier_sync_delay,23,2623,0.877,Global,,Delivery Tracking
+2026-07-06,Mobile Payments,6.4,gateway_timeout,47,4003,1.174,Global,,Payment Failure
+2026-07-06,Customer Portal,6.4,token_refresh_failure,28,3991,0.702,Global,,Login & Access
+2026-07-06,Order Tracking,5.1,courier_sync_delay,16,3030,0.528,Global,,Delivery Tracking
+2026-07-07,Mobile Payments,6.4,gateway_timeout,43,3115,1.38,Global,,Payment Failure
+2026-07-07,Customer Portal,6.4,token_refresh_failure,30,3330,0.901,Global,,Login & Access
+2026-07-07,Order Tracking,5.1,courier_sync_delay,20,3651,0.548,Global,,Delivery Tracking
+2026-07-08,Mobile Payments,6.4,gateway_timeout,55,2756,1.996,Global,,Payment Failure
+2026-07-08,Customer Portal,6.4,token_refresh_failure,20,3297,0.607,Global,,Login & Access
+2026-07-08,Order Tracking,5.1,courier_sync_delay,18,3741,0.481,Global,,Delivery Tracking
+2026-07-09,Mobile Payments,6.4,gateway_timeout,41,3198,1.282,Global,,Payment Failure
+2026-07-09,Customer Portal,6.4,token_refresh_failure,22,3536,0.622,Global,,Login & Access
+2026-07-09,Order Tracking,5.1,courier_sync_delay,21,3920,0.536,Global,,Delivery Tracking
+2026-07-10,Mobile Payments,6.4,gateway_timeout,50,4067,1.229,Global,,Payment Failure
+2026-07-10,Customer Portal,6.4,token_refresh_failure,18,3232,0.557,Global,,Login & Access
+2026-07-10,Order Tracking,5.1,courier_sync_delay,15,4055,0.37,Global,,Delivery Tracking
+2026-07-11,Mobile Payments,6.4,gateway_timeout,46,3344,1.376,Global,,Payment Failure
+2026-07-11,Customer Portal,6.4,token_refresh_failure,20,3464,0.577,Global,,Login & Access
+2026-07-11,Order Tracking,5.1,courier_sync_delay,24,3416,0.703,Global,,Delivery Tracking
+2026-07-12,Mobile Payments,6.4,gateway_timeout,49,3799,1.29,Global,,Payment Failure
+2026-07-12,Customer Portal,6.4,token_refresh_failure,159,3620,4.392,Global,INC-2039,Login & Access
+2026-07-12,Order Tracking,5.1,courier_sync_delay,18,3471,0.519,Global,,Delivery Tracking
+2026-07-13,Mobile Payments,6.4,gateway_timeout,47,3829,1.227,Global,,Payment Failure
+2026-07-13,Customer Portal,6.4,token_refresh_failure,212,3415,6.208,Global,INC-2039,Login & Access
+2026-07-13,Order Tracking,5.1,courier_sync_delay,23,3129,0.735,Global,,Delivery Tracking
+2026-07-14,Mobile Payments,6.4,gateway_timeout,50,3460,1.445,Global,,Payment Failure
+2026-07-14,Customer Portal,6.4,token_refresh_failure,210,3581,5.864,Global,INC-2039,Login & Access
+2026-07-14,Order Tracking,5.1,courier_sync_delay,22,3660,0.601,Global,,Delivery Tracking
+2026-07-15,Mobile Payments,6.4,gateway_timeout,50,2651,1.886,Global,,Payment Failure
+2026-07-15,Customer Portal,6.4,token_refresh_failure,243,3059,7.944,Global,INC-2039,Login & Access
+2026-07-15,Order Tracking,5.1,courier_sync_delay,23,2864,0.803,Global,,Delivery Tracking
+2026-07-16,Mobile Payments,6.4,gateway_timeout,54,2700,2.0,Global,,Payment Failure
+2026-07-16,Customer Portal,6.4,token_refresh_failure,41,3671,1.117,Global,INC-2039,Login & Access
+2026-07-16,Order Tracking,5.1,courier_sync_delay,19,4069,0.467,Global,,Delivery Tracking
+2026-07-17,Mobile Payments,6.4,gateway_timeout,47,3479,1.351,Global,,Payment Failure
+2026-07-17,Customer Portal,6.4,token_refresh_failure,65,2891,2.248,Global,INC-2039,Login & Access
+2026-07-17,Order Tracking,5.1,courier_sync_delay,23,3068,0.75,Global,,Delivery Tracking
+2026-07-18,Mobile Payments,6.4,gateway_timeout,490,2849,17.199,Global,INC-2048,Payment Failure
+2026-07-18,Customer Portal,6.4,token_refresh_failure,64,4035,1.586,Global,INC-2039,Login & Access
+2026-07-18,Order Tracking,5.1,courier_sync_delay,17,3980,0.427,Global,,Delivery Tracking
+2026-07-19,Mobile Payments,6.4,gateway_timeout,469,4063,11.543,Global,INC-2048,Payment Failure
+2026-07-19,Customer Portal,6.4,token_refresh_failure,70,3114,2.248,Global,INC-2039,Login & Access
+2026-07-19,Order Tracking,5.1,courier_sync_delay,20,3423,0.584,Global,,Delivery Tracking
+2026-07-20,Mobile Payments,6.4,gateway_timeout,470,3230,14.551,Global,INC-2048,Payment Failure
+2026-07-20,Customer Portal,6.4,token_refresh_failure,67,3924,1.707,Global,INC-2039,Login & Access
+2026-07-20,Order Tracking,5.1,courier_sync_delay,17,4030,0.422,Global,,Delivery Tracking
+2026-07-21,Mobile Payments,6.4,gateway_timeout,440,3423,12.854,Global,INC-2048,Payment Failure
+2026-07-21,Customer Portal,6.4,token_refresh_failure,53,3014,1.758,Global,INC-2039,Login & Access
+2026-07-21,Order Tracking,5.1,courier_sync_delay,10,3150,0.317,Global,,Delivery Tracking
+2026-07-22,Mobile Payments,6.4,gateway_timeout,114,2667,4.274,Global,INC-2048,Payment Failure
+2026-07-22,Customer Portal,6.4,token_refresh_failure,73,3942,1.852,Global,INC-2039,Login & Access
+2026-07-22,Order Tracking,5.1,courier_sync_delay,22,3538,0.622,Global,,Delivery Tracking
+2026-07-23,Mobile Payments,6.4,gateway_timeout,157,3670,4.278,Global,INC-2048,Payment Failure
+2026-07-23,Customer Portal,6.4,token_refresh_failure,47,3337,1.408,Global,INC-2039,Login & Access
+2026-07-23,Order Tracking,5.1,courier_sync_delay,21,3132,0.67,Global,,Delivery Tracking
+2026-07-24,Mobile Payments,6.4,gateway_timeout,154,3594,4.285,Global,INC-2048,Payment Failure
+2026-07-24,Customer Portal,6.4,token_refresh_failure,66,3647,1.81,Global,INC-2039,Login & Access
+2026-07-24,Order Tracking,5.1,courier_sync_delay,18,3489,0.516,Global,,Delivery Tracking
+2026-07-25,Mobile Payments,6.4,gateway_timeout,99,3959,2.501,Global,INC-2048,Payment Failure
+2026-07-25,Customer Portal,6.4,token_refresh_failure,55,3194,1.722,Global,INC-2039,Login & Access
+2026-07-25,Order Tracking,5.1,courier_sync_delay,24,3537,0.679,Global,,Delivery Tracking
+2026-07-26,Mobile Payments,6.4,gateway_timeout,151,2801,5.391,Global,INC-2048,Payment Failure
+2026-07-26,Customer Portal,6.4,token_refresh_failure,67,4011,1.67,Global,INC-2039,Login & Access
+2026-07-26,Order Tracking,5.1,courier_sync_delay,17,3130,0.543,Global,,Delivery Tracking
+2026-07-27,Mobile Payments,6.4,gateway_timeout,149,2974,5.01,Global,INC-2048,Payment Failure
+2026-07-27,Customer Portal,6.4,token_refresh_failure,65,4090,1.589,Global,INC-2039,Login & Access
+2026-07-27,Order Tracking,5.1,courier_sync_delay,124,2731,4.54,Global,INC-2052,Delivery Tracking
+2026-07-28,Mobile Payments,6.4,gateway_timeout,142,3620,3.923,Global,INC-2048,Payment Failure
+2026-07-28,Customer Portal,6.4,token_refresh_failure,47,2797,1.68,Global,INC-2039,Login & Access
+2026-07-28,Order Tracking,5.1,courier_sync_delay,108,3442,3.138,Global,INC-2052,Delivery Tracking
+2026-07-29,Mobile Payments,6.4,gateway_timeout,96,3520,2.727,Global,INC-2048,Payment Failure
+2026-07-29,Customer Portal,6.4,token_refresh_failure,35,2788,1.255,Global,INC-2039,Login & Access
+2026-07-29,Order Tracking,5.1,courier_sync_delay,100,3524,2.838,Global,INC-2052,Delivery Tracking
+2026-07-30,Mobile Payments,6.4,gateway_timeout,120,3849,3.118,Global,INC-2048,Payment Failure
+2026-07-30,Customer Portal,6.4,token_refresh_failure,42,3107,1.352,Global,INC-2039,Login & Access
+2026-07-30,Order Tracking,5.1,courier_sync_delay,95,3871,2.454,Global,INC-2052,Delivery Tracking
+2026-07-31,Mobile Payments,6.4,gateway_timeout,129,3719,3.469,Global,INC-2048,Payment Failure
+2026-07-31,Customer Portal,6.4,token_refresh_failure,75,3969,1.89,Global,INC-2039,Login & Access
+2026-07-31,Order Tracking,5.1,courier_sync_delay,109,3331,3.272,Global,INC-2052,Delivery Tracking

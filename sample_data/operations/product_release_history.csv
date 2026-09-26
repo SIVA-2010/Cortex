@@ -1,0 +1,5 @@
+release_id,released_at,product,version,component,change_summary,risk_level,rollback_available,related_incident_id,validation_status,related_category
+REL-6.4-AUTH,2026-07-12T07:30:00+00:00,Customer Portal,6.4,Authentication Token Service,Introduced token-cache and refresh-flow changes for session performance.,high,True,INC-2039,rolled_back,Login & Access
+REL-6.4-PAY,2026-07-18T08:00:00+00:00,Mobile Payments,6.4,Payment Gateway,Changed gateway timeout and retry settings to reduce average checkout latency.,high,True,INC-2048,failed_post_release,Payment Failure
+REL-5.1-TRACK,2026-07-26T21:00:00+00:00,Order Tracking,5.1,Courier Status Synchronization,Changed courier synchronization scheduling and queue batching.,medium,True,INC-2052,under_review,Delivery Tracking
+REL-3.2-REFUND,2026-07-10T10:00:00+00:00,Refund Service,3.2,Refund Workflow,Added a new reconciliation review step for higher-value refunds.,medium,False,INC-2043,operational_monitoring,Refund Delay

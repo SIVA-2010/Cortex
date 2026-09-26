@@ -1,0 +1,52 @@
+[
+  {
+    "carrier_id":"CAR-01",
+    "carrier_name":"SwiftShip Express",
+    "service_level":"Express",
+    "base_cost":6.5,
+    "cost_per_kg":1.2,
+    "eta_days":2,
+    "regions_covered":"North,South,West",
+    "reliability":0.96
+  },
+  {
+    "carrier_id":"CAR-02",
+    "carrier_name":"EconoFreight",
+    "service_level":"Economy",
+    "base_cost":2.0,
+    "cost_per_kg":0.55,
+    "eta_days":6,
+    "regions_covered":"North,South,West",
+    "reliability":0.9
+  },
+  {
+    "carrier_id":"CAR-03",
+    "carrier_name":"RegionRunner",
+    "service_level":"Standard",
+    "base_cost":3.2,
+    "cost_per_kg":0.8,
+    "eta_days":3,
+    "regions_covered":"North,South",
+    "reliability":0.92
+  },
+  {
+    "carrier_id":"CAR-04",
+    "carrier_name":"GreenLine Logistics",
+    "service_level":"Eco",
+    "base_cost":2.6,
+    "cost_per_kg":0.65,
+    "eta_days":5,
+    "regions_covered":"North,South,West",
+    "reliability":0.88
+  },
+  {
+    "carrier_id":"CAR-05",
+    "carrier_name":"PrimeCarrier",
+    "service_level":"Premium",
+    "base_cost":9.0,
+    "cost_per_kg":1.6,
+    "eta_days":1,
+    "regions_covered":"North,West",
+    "reliability":0.98
+  }
+]
